@@ -1,0 +1,8 @@
+Sub ExcluirPrimeiraLinhaEmTodasAsAbas()
+    Dim ws As Worksheet
+    For Each ws In ThisWorkbook.Worksheets
+        On Error Resume Next
+        ws.Rows(1).Delete  ' Selecione a linha desejada
+        On Error GoTo 0
+    Next ws
+End Sub
