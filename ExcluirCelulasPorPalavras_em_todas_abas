@@ -1,0 +1,20 @@
+Sub ExcluirCelulasPorPalavraEmTodasAsAbas()
+    Dim ws As Worksheet
+    Dim celula As Range
+    Dim palavra As String
+    
+    ' Palavra ou palavras que você deseja procurar e excluir
+    Dim palavras() As String
+    palavras = Split("Palavra1,Palavra2,Palavra3", ",") ' Substitua com suas palavras
+
+    For Each ws In ThisWorkbook.Worksheets
+        For Each celula In ws.UsedRange
+            For i = LBound(palavras) To UBound(palavras)
+                palavra = palavras(i)
+                If InStr(1, celula.Value, palavra, vbTextCompare) > 0 Then
+                    celula.ClearContents
+                End If
+            Next i
+        Next celula
+    Next ws
+End Sub
