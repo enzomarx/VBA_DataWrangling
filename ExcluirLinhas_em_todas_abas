@@ -1,0 +1,8 @@
+Sub ExcluirLinhas2A11EmTodasAsAbas()
+    Dim ws As Worksheet
+    For Each ws In ThisWorkbook.Worksheets
+        On Error Resume Next
+        ws.Rows("2:11").Delete  ' escreva seu intervalo
+        On Error GoTo 0
+    Next ws
+End Sub
